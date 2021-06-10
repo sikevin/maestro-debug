@@ -61,6 +61,11 @@ fetch("https://ab-p5-api.herokuapp.com/api/cameras")
         btn.classList.add("btn", "btn-sm", "btn-outline-secondary");
         btn.innerText = "View";
 
+        // creation of a btn with the class btn, btn-sm and btn-outline-secondary. I also added the text "Buy" inside.
+        let btnBuy = document.createElement('button');
+        btnBuy.classList.add("btn", "btn-sm", "btn-outline-secondary");
+        btnBuy.innerText = "Buy";
+
         // Creation of a small tag with class text-muted and with a text that contain the price of the camera given by the array "data" divided by 100 because the price was in penny 
         let price = document.createElement('small');
         price.classList.add("text-muted");
@@ -75,6 +80,7 @@ fetch("https://ab-p5-api.herokuapp.com/api/cameras")
 
         ctaBlock.appendChild(btnGroup);
         btnGroup.appendChild(btn);
+        btnGroup.appendChild(btnBuy);
         ctaBlock.appendChild(price);
 
         cardBody.appendChild(cardHeader);
