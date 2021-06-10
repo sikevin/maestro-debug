@@ -1,3 +1,8 @@
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
 // 1. Start the server in the folder JWDP5 (npm start server)
 // 2. Use fetch to get informations from the API (here : cameras)
 fetch("https://ab-p5-api.herokuapp.com/api/cameras")
@@ -54,7 +59,7 @@ fetch("https://ab-p5-api.herokuapp.com/api/cameras")
         // creation of a btn with the class btn, btn-sm and btn-outline-secondary. I also added the text "Buy" inside.
         let btn = document.createElement('button');
         btn.classList.add("btn", "btn-sm", "btn-outline-secondary");
-        btn.innerText = "Buy";
+        btn.innerText = "View";
 
         // Creation of a small tag with class text-muted and with a text that contain the price of the camera given by the array "data" divided by 100 because the price was in penny 
         let price = document.createElement('small');
