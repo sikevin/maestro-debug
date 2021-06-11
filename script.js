@@ -19,7 +19,7 @@ fetch("https://ab-p5-api.herokuapp.com/api/cameras")
         let img = document.createElement('img');
         img.src = data[i]['imageUrl'];
         img.css = 'width:100%';
-        img.css = 'height:100%';
+        img.style.maxHeight = '300px';
 
         // creation of a div tag with a class card-body
         let cardBody = document.createElement('div');
