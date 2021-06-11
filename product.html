@@ -11,7 +11,7 @@
 
     <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script defer src="script.js"></script>
+    <script defer src="product.js"></script>
 
     <title>Photography</title>
 </head>
@@ -47,43 +47,29 @@
     
     <main>
         <p class="text-center text-muted small">Pour accéder aux consignes, cliquez sur <i class="bi bi-info-circle"></i> dans la barre de navigation.</p>
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Photography example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
-            </div>
-            </div>
-        </section>
-        
-        <div class="album py-5 bg-light">
-            <div class="container">
-        
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id='row'>
-                <!-- Example of a static card
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src="" width="100%" height="100%"/>
-            
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
-                                </div>
-                                <small class="text-muted">€300</small>
-                            </div>
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img  id="product-img" class="card-img-top mb-5 mb-md-0" src="" alt="..."></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">ID: <span id="product-id"></span></div>
+                        <h1 id="product-title" class="display-5 fw-bolder"></h1>
+                        <div class="fs-5 mb-5">
+                            <span id="product-price"></span>
+                        </div>
+                        <p id="product-description" class="lead"></p>
+                        <div class="d-flex" data-children-count="1">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
                         </div>
                     </div>
                 </div>
-                -->
             </div>
-        </div>
-    
+        </section>
     </main>
     
     <footer class="text-muted py-5">
@@ -94,6 +80,8 @@
             <p class="mb-1">Photography example is © <a href="https://www.joinmaestro.co/" target="_blank">Maestro</a> </p>
         </div>
     </footer>
+
+
     
     <div class="modal" id="info" tabindex="-1">
         <div class="modal-dialog">

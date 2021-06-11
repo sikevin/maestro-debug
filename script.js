@@ -1,25 +1,11 @@
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-
 // 1. Start the server in the folder JWDP5 (npm start server)
 // 2. Use fetch to get informations from the API (here : cameras)
 fetch("https://ab-p5-api.herokuapp.com/api/cameras")
-.then(res => res.json()) // not useful for our app
+.then(res => res.json())
 .then(data => { 
-    console.log(data); // data returns an array with all the informations about cameras
     let l = data.length; // get numbers of element in the array for the for loop
 
     for(let i = 0; i < l; i++){
-
-        // All console.log are here to test if I request them well
-        console.log(data[i])
-        console.log(data[i]['id']);
-        console.log(data[i]['name']);
-        console.log(data[i]['description']);
-        console.log(data[i]['price']);
-        console.log(data[i]['imageUrl']);
 
         // creation of a div with a class col
         let col =  document.createElement('div');
@@ -57,13 +43,14 @@ fetch("https://ab-p5-api.herokuapp.com/api/cameras")
         btnGroup.classList.add("btn-group");
 
         // creation of a btn with the class btn, btn-sm and btn-outline-secondary. I also added the text "Buy" inside.
-        let btn = document.createElement('button');
+        let btn = document.createElement('a');
+        btn.href = "product.html?product_id=" + data[i]['_id'];
         btn.classList.add("btn", "btn-sm", "btn-outline-secondary");
         btn.innerText = "View";
 
         // creation of a btn with the class btn, btn-sm and btn-outline-secondary. I also added the text "Buy" inside.
         let btnBuy = document.createElement('button');
-        btnBuy.classList.add("btn", "btn-sm", "btn-outline-secondary");
+        btnBuy.classList.add("btn", "btn-sm", "btn-outline-secondary", "buy");
         btnBuy.innerText = "Buy";
 
         // Creation of a small tag with class text-muted and with a text that contain the price of the camera given by the array "data" divided by 100 because the price was in penny 
@@ -95,7 +82,32 @@ fetch("https://ab-p5-api.herokuapp.com/api/cameras")
         let container = document.getElementById("row");
         container.appendChild(col);
     }
+
+
+    let buyElt = document.getElementsByClassName('buy');
+
+    for(let i = 0; i < buyElt.length; i++){
+        buyElt[i].addEventListener('click', function(){
+            //nb-el(m)t
+            let ntElt = document.getElementById("nb-elt");
+            let nb = ntElt.textContent;
+            nb = parseInt(nb);
+            nb++;
+            ntElt.textContent = nb;
+        })
+    }
 })
 .catch(
     function(error){ alert("Erreur : " + error);
+});
+
+// END: FETCH
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+$(document).ready(function(){
+    $("#info").modal('show');
 });
